@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+st.header('Creando graficos de Venta de autos')
+
 # leer los datos para histograma
 car_data = pd.read_csv('vehicles_us.csv')
 # crear un boton
@@ -10,10 +12,10 @@ hist_button = st.button('Contruir un histograma')
 
 # configurar el boto
 if hist_button:
-    st.write('Creacion de un histograma para los datos de odómetro')
+    st.write('Creación de un histograma para los datos de odómetro')
 
     # crear un histograma
-    fig = px.histogram(car_data, x='odometer', labels={'x':'odometer', 'y':'number'})
+    fig = px.histogram(car_data, x='odometer', labels={'x':'Odómetro', 'y':'millas'}, title='Distancia recorrida')
 
     # mostrar un grafico plotly interactivo
     st.plotly_chart(fig, use_container_width=True)
@@ -31,9 +33,13 @@ if scatter_button:
     st.write('Creación de un gráfico de dispersión para datos de odómetro')
 
     #creación del gráfico de dispersión
-    fig2 = px.scatter(car_data2, x='odometer', y='price', color="paint_color")
+    fig2 = px.scatter(car_data2, x='odometer', y='price', color="paint_color", labels={'x':'Odómetro', 'y':'Precio'}, title="Precio de autos clasificados por color basados por odómetro")
 
     #mostrar el grafico en plotly interactivo
     st.plotly_chart(fig2, use_container_width=True)
     
 
+ask_customer = st.checkbox('¿Te ha sido útil esta información?, Dar clic en la casilla para afirmar')
+
+if ask_customer: # si la casilla de verificación está seleccionada
+    st.write('Gracias por su tiempo :P')
