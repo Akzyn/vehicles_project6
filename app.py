@@ -33,14 +33,21 @@ if scatter_button:
     st.write('Creación de un gráfico de dispersión para datos de odómetro')
 
     #creación del gráfico de dispersión
-    fig2 = px.scatter(car_data2, x='odometer', y='price', color={"paint_color":[nan: 'pink', 'white': 'white', 'red': 'red', 'black': 'black', 'blue': 'blue', 'grey':'grey', 'silver':'silver', 'custom':'custom', 'orange':'orange', 'yellow':'yellow', 'brown':'brown', 'green':'green', 'purple':'purple']}, 
-                      labels={'x':'Odómetro', 'y':'Precio'}, title="Precio de autos clasificados por color basados por odómetro")
+    fig2 = px.scatter(car_data2, x='odometer', y='price', color="paint_color", labels={'x':'Odómetro', 'y':'Precio'}, title="Precio de autos clasificados por color basados por odómetro")
 
     #mostrar el grafico en plotly interactivo
     st.plotly_chart(fig2, use_container_width=True)
-    
 
+
+
+#casillas de checkbox
 ask_customer = st.checkbox('¿Te ha sido útil esta información?, Dar clic en la casilla para afirmar')
 
 if ask_customer: # si la casilla de verificación está seleccionada
     st.write('Gracias por su tiempo :P')
+
+
+ask_customer2 = st.checkbox('¿Has podido ver las dos gráficas? Dar clic en la casilla para afirmar')
+
+if ask_customer2: # si la casilla de verificación está seleccionada
+    st.write('Gracias!, la aplicación se ejecuta sin errores')
