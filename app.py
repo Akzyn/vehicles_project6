@@ -13,7 +13,7 @@ if hist_button:
     st.write('Creacion de un histograma para los datos de odómetro')
 
     # crear un histograma
-    fig = px.histogram(car_data, x='odometer')
+    fig = px.histogram(car_data, x='odometer', labels={'x':'odometer', 'y':'number'})
 
     # mostrar un grafico plotly interactivo
     st.plotly_chart(fig, use_container_width=True)
@@ -31,8 +31,7 @@ if scatter_button:
     st.write('Creación de un gráfico de dispersión para datos de odómetro')
 
     #creación del gráfico de dispersión
-    fig2 = px.scatter(car_data2, x='odometer', y='price', color="species",
-                 size='petal_length', hover_data=['petal_width'])
+    fig2 = px.scatter(car_data2, x='odometer', y='price', color="paint_color")
 
     #mostrar el grafico en plotly interactivo
     st.plotly_chart(fig2, use_container_width=True)
