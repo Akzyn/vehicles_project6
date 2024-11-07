@@ -3,9 +3,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# leer los datos
-car_data = pd.read_csv(
-    'E:/Tripleten/Sprint 6/Proyecto6/vehicles_project6/vehicles_us.csv')
+# leer los datos para histograma
+car_data = pd.read_csv('vehicles_us.csv')
 # crear un boton
 hist_button = st.button('Contruir un histograma')
 
@@ -19,3 +18,5 @@ if hist_button:
 
     # mostrar un grafico plotly interactivo
     st.plotly_chart(fig, use_container_width=True)
+
+
