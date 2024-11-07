@@ -31,7 +31,8 @@ if scatter_button:
     st.write('Creación de un gráfico de dispersión para datos de odómetro')
 
     #creación del gráfico de dispersión
-    fig2 = px.scatter_3d(car_data2, x='odometer')
+    fig2 = px.scatter(car_data2, x='odometer', y='price', color="species",
+                 size='petal_length', hover_data=['petal_width'])
 
     #mostrar el grafico en plotly interactivo
     st.plotly_chart(fig2, use_container_width=True)
